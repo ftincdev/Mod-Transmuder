@@ -1,0 +1,7 @@
+{
+    "template_zip_url": "https://github.com/FabricMC/fabric-example-mod/archive/refs/heads/1.21.1.zip",
+    "transmudation_output": "./output",
+    "transmudation_input": "./input",
+    "rewrite_data": true,
+    "stop_if_fail": true
+}

@@ -1,0 +1,6 @@
+input/
+output/
+config.json
+data.json
+
+.vscode/
