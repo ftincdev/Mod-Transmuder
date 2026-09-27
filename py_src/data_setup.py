@@ -8,12 +8,20 @@ from pathlib import Path
 with open("config.json", "r", encoding="utf-8") as file:
     config = json.load(file)
 
-# Read data
-with open("data.json", "r", encoding="utf-8") as file:
-    data = json.load(file)
-
 transmudation_input = config["transmudation_input"]
 rewrite_data = config["rewrite_data"]
+
+if rewrite_data:
+    # Data init
+    data = {
+        "project_name": "",
+        "project_id": ""
+    }
+else:
+    # Read data
+    with open("data.json", "r", encoding="utf-8") as file:
+        data = json.load(file)
+
 
 mod_sub_dir = next(item for item in Path(transmudation_input).iterdir() if item.is_dir())
 
@@ -52,10 +60,10 @@ def extract_project_id():
 
     return project_id
 
-if data["project_name"] == "" or rewrite_data:
+if data["project_name"] == "":
     data["project_name"] = extract_project_name()
 
-if data["project_id"] == "" or rewrite_data:
+if data["project_id"] == "":
     data["project_id"] = extract_project_id()
 
 # Write data
