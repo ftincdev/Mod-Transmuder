@@ -17,10 +17,10 @@ rewrite_data = config["rewrite_data"]
 
 mod_sub_dir = next(item for item in Path(transmudation_input).iterdir() if item.is_dir())
 
-# Prase properties
+# Parse properties
+# Terrible part, vibe-coded!!!
 def parse_gradle_properties(path):
     props = {}
-    # terrible part
     with open(path, encoding="utf-8") as f:
         for line in f:
             line = line.strip()
