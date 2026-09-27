@@ -1,0 +1,2 @@
+# Remove classes form template
+

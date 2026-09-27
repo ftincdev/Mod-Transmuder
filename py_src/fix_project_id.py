@@ -20,12 +20,12 @@ new_mod_sub_dir = next(item for item in Path(transmudation_output).iterdir() if 
 def fix_mod_json():
     # Read mod json
     with open(new_mod_sub_dir / "src" / "main" / "resources" / "fabric.mod.json", "r", encoding="utf-8") as file:
-        data = json.load(file)
+        mod_data = json.load(file)
 
-    data["id"] = project_id
+    mod_data["id"] = project_id
 
     # Write mod json
     with open(new_mod_sub_dir / "src" / "main" / "resources" / "fabric.mod.json", "w", encoding="utf-8") as file:
-        json.dump(data, file, ensure_ascii=False, indent=4)
+        json.dump(mod_data, file, ensure_ascii=False, indent=4)
 
 fix_mod_json()
