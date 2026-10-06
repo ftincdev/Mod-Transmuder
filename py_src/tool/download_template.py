@@ -5,12 +5,12 @@ import zipfile
 import requests
 import json
 from pathlib import Path
+from py_src.lib.project import config
 
-with open("config.json", "r", encoding="utf-8") as file:
-    config = json.load(file)
+project_config = config.read()
 
-zip_url = config["template_zip_url"]
-extract_to = config["transmudation_output"]
+zip_url = project_config["template_zip_url"]
+extract_to = project_config["transmudation_output"]
 
 extract_path = Path(extract_to)
 has_subdir = extract_path.is_dir() and any(

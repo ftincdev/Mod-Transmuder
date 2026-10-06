@@ -3,13 +3,12 @@
 import re
 import json
 from pathlib import Path
+from lib.project import config
 
-# Read config
-with open("config.json", "r", encoding="utf-8") as file:
-    config = json.load(file)
+project_config = config.read()
 
-transmudation_input = config["transmudation_input"]
-rewrite_data = config["rewrite_data"]
+transmudation_input = project_config["transmudation_input"]
+rewrite_data = project_config["rewrite_data"]
 
 if rewrite_data:
     # Data init

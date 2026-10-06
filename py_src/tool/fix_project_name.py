@@ -2,18 +2,14 @@
 
 import json
 from pathlib import Path
+from py_src.lib.project import config
+from py_src.lib.project import data
 
-# Read config
-with open("config.json", "r", encoding="utf-8") as file:
-    config = json.load(file)
+project_config = config.read()
+project_data = data.read()
 
-# Read data
-with open("data.json", "r", encoding="utf-8") as file:
-    data = json.load(file)
-
-transmudation_output = config["transmudation_output"]
-
-project_name = data["project_name"]
+transmudation_output = project_config["transmudation_output"]
+project_name = project_data["project_name"]
 
 new_mod_sub_dir = next(item for item in Path(transmudation_output).iterdir() if item.is_dir())
 

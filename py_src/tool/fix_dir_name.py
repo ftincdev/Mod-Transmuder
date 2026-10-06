@@ -2,13 +2,12 @@
 
 import json
 from pathlib import Path
+from py_src.lib.project import config
 
-# Read config
-with open("config.json", "r", encoding="utf-8") as file:
-    config = json.load(file)
+project_config = config.read()
 
-transmudation_input = config["transmudation_input"]
-transmudation_output = config["transmudation_output"]
+transmudation_input = project_config["transmudation_input"]
+transmudation_output = project_config["transmudation_output"]
 
 mod_sub_dir = next(item for item in Path(transmudation_input).iterdir() if item.is_dir())
 new_mod_sub_dir = next(item for item in Path(transmudation_output).iterdir() if item.is_dir())
