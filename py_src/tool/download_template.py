@@ -3,9 +3,12 @@
 import io
 import zipfile
 import requests
-import json
+import sys
 from pathlib import Path
-from py_src.lib.project import config
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from lib.project import config
 
 project_config = config.read()
 

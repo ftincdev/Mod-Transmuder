@@ -1,21 +1,27 @@
 # Automated script to launch the "transmudation"
 
 import subprocess
-import json
 import sys
+from pathlib import Path
 
-# Read config
-with open("config.json", "r", encoding="utf-8") as file:
-    config = json.load(file)
+ROOT = Path(__file__).parent
+PY_SRC = ROOT / "py_src"
+TOOLS_PATH = PY_SRC / "tool"
 
-stop_if_fail = config["stop_if_fail"]
+sys.path.insert(0, str(PY_SRC))
 
-subprocess.run([sys.executable, "py_src\\data_setup.py"], check=stop_if_fail)
-subprocess.run([sys.executable, "py_src\\download_template.py"], check=stop_if_fail)
-subprocess.run([sys.executable, "py_src\\fix_dir_name.py"], check=stop_if_fail)
+from py_src.lib.project import config
 
-subprocess.run([sys.executable, "py_src\\remove_split_env.py"], check=stop_if_fail)
-subprocess.run([sys.executable, "py_src\\remove_client_env.py"], check=stop_if_fail)
+project_config = config.read()
 
-subprocess.run([sys.executable, "py_src\\fix_project_name.py"], check=stop_if_fail)
-subprocess.run([sys.executable, "py_src\\fix_project_id.py"], check=stop_if_fail)
+stop_if_fail = project_config["stop_if_fail"]
+
+subprocess.run([sys.executable, TOOLS_PATH / "data_setup.py"], check=stop_if_fail)
+subprocess.run([sys.executable, TOOLS_PATH / "download_template.py"], check=stop_if_fail)
+subprocess.run([sys.executable, TOOLS_PATH / "fix_dir_name.py"], check=stop_if_fail)
+
+subprocess.run([sys.executable, TOOLS_PATH / "remove_split_env.py"], check=stop_if_fail)
+subprocess.run([sys.executable, TOOLS_PATH / "remove_client_env.py"], check=stop_if_fail)
+
+subprocess.run([sys.executable, TOOLS_PATH / "fix_project_name.py"], check=stop_if_fail)
+subprocess.run([sys.executable, TOOLS_PATH / "fix_project_id.py"], check=stop_if_fail)

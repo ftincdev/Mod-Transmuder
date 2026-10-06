@@ -1,10 +1,10 @@
 from pathlib import Path
-from py_src.lib.io_utils import raw_text
+from lib.io_utils import json_file
 
 DATA_FILE = Path("data.json")
 
 def read() -> dict:
-    return raw_text.read(DATA_FILE)
+    return json_file.read(DATA_FILE)
 
 def write(data: dict) -> None:
-    raw_api.write(DATA_FILE, data)
+    json_file.write(DATA_FILE, data)

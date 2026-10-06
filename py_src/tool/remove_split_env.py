@@ -2,10 +2,13 @@
 # Even not hardcoded for this template btw probably maybe
 
 import re
-import json
+import sys
 from pathlib import Path
-from py_src.lib.project import config
-from py_src.lib.io_utils import json_file
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from lib.project import config
+from lib.io_utils import text_file
 
 project_config = config.read()
 
@@ -15,7 +18,7 @@ mod_sub_dir = next(item for item in Path(transmudation_output).iterdir() if item
 
 build_gradle = mod_sub_dir / "build.gradle"
 
-text = json_file.read(build_gradle)
+text = text_file.read(build_gradle)
 
 text = re.sub(
     r'^[ \t]*(?:splitEnvironmentSourceSets\(\)|sourceSet\s+sourceSets\.client)[ \t]*\r?\n',
@@ -24,4 +27,4 @@ text = re.sub(
     flags=re.M,
 )
 
-json_file.write(build_gradle, text)
+text_file.write(build_gradle, text)

@@ -1,9 +1,13 @@
 # Fix project name in src
 
 import json
+import sys
 from pathlib import Path
-from py_src.lib.project import config
-from py_src.lib.project import data
+
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+
+from lib.project import config
+from lib.project import data
 
 project_config = config.read()
 project_data = data.read()
