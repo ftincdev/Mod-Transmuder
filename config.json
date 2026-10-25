@@ -1,5 +1,5 @@
 {
-    "template_zip_url": "https://github.com/FabricMC/fabric-example-mod/archive/refs/heads/1.21.1.zip",
+    "template_zip_url": "https://github.com/ftincdev/MT-template/archive/refs/heads/main.zip",
     "transmudation_output": "./output",
     "transmudation_input": "./input",
     "rewrite_data": true,
