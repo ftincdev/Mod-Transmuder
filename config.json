@@ -1,7 +1,8 @@
 {
-    "template_zip_url": "https://github.com/ftincdev/MT-template/archive/refs/heads/main.zip",
-    "transmudation_output": "./output",
-    "transmudation_input": "./input",
-    "rewrite_data": true,
-    "stop_if_fail": true
+    "templateUrl": "https://github.com/ftincdev/MT-template/archive/refs/heads/main.zip",
+    "outputDir": "./output",
+    "inputDir": "./input",
+    "cacheDir": "./.mt-cache",
+    "rewriteData": true,
+    "stopIfFail": true
 }

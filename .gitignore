@@ -1,5 +1,9 @@
-input/
-output/
+# MT
+input
+output
 data.json
 
-.vscode/
+# other
+.vscode
+.gradle
+build
