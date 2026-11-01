@@ -1,9 +1,3 @@
-# MT
-input
-output
-data.json
-.mt-cache
-
 # other
 .vscode
 .gradle
