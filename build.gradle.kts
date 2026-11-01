@@ -31,12 +31,10 @@ dependencies {
     implementation("com.fasterxml.jackson.core:jackson-databind:2.17.0")
     implementation("org.slf4j:slf4j-api:2.0.12")
     implementation("ch.qos.logback:logback-classic:1.5.3")
+
+    implementation("io.github.ftincdev.mttransformer:MT-transformer-1.7.10:0.2.0")
     
     testImplementation("org.junit.jupiter:junit-jupiter:5.10.2")
-
-    "snapshotDep"("io.github.ftincdev.mttransformer:MT-Transformer-1.7.10:0.1-SNAPSHOT") {
-        isChanging = true
-    }
 }
 
 gradlePlugin {

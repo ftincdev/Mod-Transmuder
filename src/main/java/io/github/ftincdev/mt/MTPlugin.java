@@ -119,7 +119,7 @@ public class MTPlugin implements Plugin<Project> {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
             String line;
             while ((line = reader.readLine()) != null) {
-                task.getLogger().lifecycle("[MT-Build] " + line);
+                task.getLogger().lifecycle("[MT] " + line);
             }
         }
 

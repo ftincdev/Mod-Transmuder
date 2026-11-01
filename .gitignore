@@ -1,4 +1,8 @@
+# MT
+local.properties
+
 # other
-.vscode
-.gradle
-build
+.vscode/
+.idea/
+.gradle/
+build/
