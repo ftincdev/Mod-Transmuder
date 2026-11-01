@@ -1,0 +1,9 @@
+{
+    "templateVersion": "0.1.0",
+    "templateUrl": "https://github.com/ftincdev/MT-template/archive/refs/tags/${version}.zip",
+    "outputDir": "transmuded",
+    "inputDir": ".",
+    "cacheDir": ".mt-cache",
+    "rewriteData": true,
+    "stopIfFail": true
+}

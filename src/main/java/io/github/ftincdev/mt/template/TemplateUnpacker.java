@@ -19,21 +19,30 @@ public class TemplateUnpacker {
 
     try (InputStream is = Files.newInputStream(zipPath);
         ZipInputStream zis = new ZipInputStream(is)) {
-
             ZipEntry entry;
 
             while ((entry = zis.getNextEntry()) != null) {
-                Path filePath = targetDir.resolve(entry.getName()).normalize();
+                String entryName = entry.getName();
+                
+                if (entryName.contains("/")) {
+                    entryName = entryName.substring(entryName.indexOf("/") + 1);
+                } else {
+                    continue;
+                }
+
+                if (entryName.isEmpty()) continue;
+
+                Path filePath = targetDir.resolve(entryName).normalize();
 
                 if (!filePath.startsWith(targetDir.normalize())) {
-                    throw new IOException("Bad zip entry: " + entry.getName());
+                    throw new IOException("Bad zip entry: " + entryName);
                 }
 
                 if (entry.isDirectory()) {
                     Files.createDirectories(filePath);
                 } else {
                     Files.createDirectories(filePath.getParent());
-                    Files.copy(zis, filePath);
+                    Files.copy(zis, filePath, java.nio.file.StandardCopyOption.REPLACE_EXISTING);
                 }
             }
         }

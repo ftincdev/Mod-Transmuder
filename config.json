@@ -1,8 +1,0 @@
-{
-    "templateUrl": "https://github.com/ftincdev/MT-template/archive/refs/heads/main.zip",
-    "outputDir": "./output",
-    "inputDir": "./input",
-    "cacheDir": "./.mt-cache",
-    "rewriteData": true,
-    "stopIfFail": true
-}
